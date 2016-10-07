@@ -1,0 +1,23 @@
+
+<form id="1685567141">
+<property name="name" value="Askforpositionanddestination-taskform.form"/>
+<property name="displayMode" value="default"/>
+<property name="status" value="0"/>
+<field position="0" name="drive_from" type="Subform" id="1194565596">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;from (drive)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="driveInput/from"/>
+<property name="outputBinding" value="driveOutput/from"/>
+<property name="fieldClass" value="java.lang.Object"/>
+</field>
+<field position="1" name="drive_to" type="Subform" id="1422921661">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;to (drive)quot;"/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value="driveInput/to"/>
+<property name="outputBinding" value="driveOutput/to"/>
+<property name="fieldClass" value="java.lang.Object"/>
+</field>
+<dataHolder inputId="driveInput" name="#9BCAFA" type="dataModelerEntry" outId="driveOutput" value="org.jboss.qa.examples.bpm_taxi.Drive" id="drive"/>
+</form>

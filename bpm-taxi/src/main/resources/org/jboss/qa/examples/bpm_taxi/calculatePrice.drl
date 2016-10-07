@@ -1,0 +1,11 @@
+package org.jboss.qa.examples.bpm_taxi;
+
+import org.jboss.qa.examples.bpm_taxi.Customer
+import org.jboss.qa.examples.bpm_taxi.Drive
+
+rule 'calculatePrice'
+ruleflow-group 'calculatePrice'
+when
+  drive : Drive()
+then
+end

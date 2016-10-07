@@ -1,0 +1,14 @@
+package org.jboss.qa.examples.bpm_taxi;
+
+import org.jboss.qa.examples.bpm_taxi.Address
+import org.jboss.qa.examples.bpm_taxi.Taxi
+
+rule 'findNearestTaxi'
+ruleflow-group 'nearestTaxi'
+when
+  taxi : Taxi() 
+then
+  
+end
+
+
