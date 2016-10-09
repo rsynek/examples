@@ -57,4 +57,22 @@ public class Customer implements java.io.Serializable
       this.history = history;
    }
 
+   @Override
+   public boolean equals(final Object o) {
+      if (this == o) return true;
+      if (!(o instanceof Customer)) return false;
+
+      Customer customer = (Customer) o;
+
+      if (!name.equals(customer.name)) return false;
+      return surname.equals(customer.surname);
+
+   }
+
+   @Override
+   public int hashCode() {
+      int result = name.hashCode();
+      result = 31 * result + surname.hashCode();
+      return result;
+   }
 }

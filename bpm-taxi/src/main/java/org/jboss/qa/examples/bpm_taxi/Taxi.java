@@ -45,4 +45,19 @@ public class Taxi implements java.io.Serializable
       this.car = car;
    }
 
+   @Override
+   public boolean equals(final Object o) {
+      if (this == o) return true;
+      if (!(o instanceof Taxi)) return false;
+
+      Taxi taxi = (Taxi) o;
+
+      return car.equals(taxi.car);
+
+   }
+
+   @Override
+   public int hashCode() {
+      return car.hashCode();
+   }
 }
