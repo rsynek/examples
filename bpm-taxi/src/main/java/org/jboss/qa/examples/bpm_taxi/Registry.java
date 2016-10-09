@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlType;
         "addresses",
         "taxis"
 })
-public class Registry {
+public class Registry implements java.io.Serializable {
 
     @XmlElementWrapper
     private List<Address> addresses;
