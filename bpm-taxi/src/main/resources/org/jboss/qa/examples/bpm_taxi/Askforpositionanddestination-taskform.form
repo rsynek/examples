@@ -5,18 +5,25 @@
 <property name="status" value="0"/>
 <field position="0" name="drive_from" type="Subform" id="1194565596">
 <property name="fieldRequired" value="false"/>
-<property name="label" value="quot;enquot;,quot;from (drive)quot;"/>
+<property name="label" value="quot;SSClassquot;,quot;quot;quot;SSStylequot;,quot;quot;quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;Client&apos;s locationquot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="errorMessage" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="title" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
 <property name="readonly" value="false"/>
 <property name="inputBinding" value="driveInput/from"/>
 <property name="outputBinding" value="driveOutput/from"/>
+<property name="defaultSubform" value="addressForm.form"/>
 <property name="fieldClass" value="java.lang.Object"/>
 </field>
 <field position="1" name="drive_to" type="Subform" id="1422921661">
 <property name="fieldRequired" value="false"/>
-<property name="label" value="quot;enquot;,quot;to (drive)quot;"/>
+<property name="groupWithPrevious" value="true"/>
+<property name="label" value="quot;SSClassquot;,quot;quot;quot;SSStylequot;,quot;quot;quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;Destinationquot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="errorMessage" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="title" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
 <property name="readonly" value="false"/>
 <property name="inputBinding" value="driveInput/to"/>
 <property name="outputBinding" value="driveOutput/to"/>
+<property name="defaultSubform" value="addressForm.form"/>
 <property name="fieldClass" value="java.lang.Object"/>
 </field>
 <dataHolder inputId="driveInput" name="#9BCAFA" type="dataModelerEntry" outId="driveOutput" value="org.jboss.qa.examples.bpm_taxi.Drive" id="drive"/>
