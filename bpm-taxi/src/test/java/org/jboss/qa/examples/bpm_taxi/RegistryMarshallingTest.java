@@ -53,6 +53,7 @@ public class RegistryMarshallingTest {
             marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
             return marshaller;
         } catch (JAXBException jaxbException) {
+            jaxbException.printStackTrace();
             throw new RuntimeException("Unable to create marshaller.", jaxbException);
         }
     }
