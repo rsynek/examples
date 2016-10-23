@@ -73,6 +73,10 @@ public class Drive implements java.io.Serializable {
         return this.refused;
     }
 
+    public boolean getRefused() {
+        return this.refused;
+    }
+
     public void setRefused(boolean refused) {
         this.refused = refused;
     }

@@ -1,31 +1,31 @@
 
-<form id="598192436">
-<property name="name" value="addressForm.form"/>
+<form id="1530869824">
+<property name="name" value="Askforclientidentification-taskform.form"/>
 <property name="displayMode" value="default"/>
 <property name="status" value="0"/>
-<field position="0" name="address_city" type="InputText" id="489847404">
+<field position="0" name="customer_name" type="InputText" id="549821107">
 <property name="fieldRequired" value="false"/>
-<property name="label" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;Cityquot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="label" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;First namequot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
 <property name="errorMessage" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
 <property name="title" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
 <property name="readonly" value="false"/>
 <property name="isHTML" value="false"/>
 <property name="hideContent" value="false"/>
-<property name="inputBinding" value="addressInput/city"/>
-<property name="outputBinding" value="addressOutput/city"/>
+<property name="inputBinding" value="customerIn/name"/>
+<property name="outputBinding" value="customerOut/name"/>
 <property name="fieldClass" value="java.lang.String"/>
 </field>
-<field position="1" name="address_street" type="InputText" id="852872504">
-<property name="fieldRequired" value="false"/>
-<property name="label" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;Streetquot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<field position="1" name="customer_surname" type="InputText" id="1202832382">
+<property name="fieldRequired" value="true"/>
+<property name="label" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;Surnamequot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
 <property name="errorMessage" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
 <property name="title" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
 <property name="readonly" value="false"/>
 <property name="isHTML" value="false"/>
 <property name="hideContent" value="false"/>
-<property name="inputBinding" value="addressInput/street"/>
-<property name="outputBinding" value="addressOutput/street"/>
+<property name="inputBinding" value="customerIn/surname"/>
+<property name="outputBinding" value="customerOut/surname"/>
 <property name="fieldClass" value="java.lang.String"/>
 </field>
-<dataHolder inputId="addressInput" name="#E9E371" type="dataModelerEntry" outId="addressOutput" value="org.jboss.qa.examples.bpm_taxi.Address" id="address"/>
+<dataHolder inputId="customerIn" name="#E9E371" type="dataModelerEntry" outId="customerOut" value="org.jboss.qa.examples.bpm_taxi.Customer" id="customer"/>
 </form>

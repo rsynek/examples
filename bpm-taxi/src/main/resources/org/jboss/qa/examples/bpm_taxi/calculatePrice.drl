@@ -3,9 +3,22 @@ package org.jboss.qa.examples.bpm_taxi;
 import org.jboss.qa.examples.bpm_taxi.Customer
 import org.jboss.qa.examples.bpm_taxi.Drive
 
+/*
+  TODO: sets constant price, must compute it based on distance and customer's history
+*/
 rule 'calculatePrice'
 ruleflow-group 'calculatePrice'
+no-loop
 when
   drive : Drive()
+  process : WorkflowProcessInstance()
 then
+  System.out.println("********** rule task 'calculatePrice' **********");
+  drive.setPrice(500.0);
+  
+  WorkflowProcessInstance $p = (WorkflowProcessInstance)kcontext.getKieRuntime().getProcessInstance(process.getId());
+  $p.setVariable( "drive", drive);
+  retract(process);
+
+  System.out.println("Drive: " + drive);
 end

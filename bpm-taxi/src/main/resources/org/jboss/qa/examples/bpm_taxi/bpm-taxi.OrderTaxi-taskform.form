@@ -1,0 +1,26 @@
+
+<form id="1799126415">
+<property name="name" value="bpm-taxi.OrderTaxi-taskform.form"/>
+<property name="displayMode" value="default"/>
+<property name="status" value="0"/>
+<field position="0" name=":decorator_0" type="HTMLLabel" id="1098832205">
+<property name="fieldRequired" value="false"/>
+<property name="readonly" value="false"/>
+<property name="htmlContent" value="quot;caquot;,quot;&lt;h2&gt;Run new &apos;Order a taxi&apos; process&lt;/h2&gt; quot;quot;dequot;,quot;&lt;h2&gt;Run new &apos;Order a taxi&apos; process&lt;/h2&gt; quot;quot;enquot;,quot;&lt;h2&gt;Run new &apos;Order a taxi&apos; process&lt;/h2&gt; quot;quot;esquot;,quot;&lt;h2&gt;Run new &apos;Order a taxi&apos; process&lt;/h2&gt; quot;quot;frquot;,quot;&lt;h2&gt;Run new &apos;Order a taxi&apos; process&lt;/h2&gt; quot;quot;jaquot;,quot;&lt;h2&gt;Run new &apos;Order a taxi&apos; process&lt;/h2&gt; quot;quot;ptquot;,quot;&lt;h2&gt;Run new &apos;Order a taxi&apos; process&lt;/h2&gt; quot;quot;zhquot;,quot;&lt;h2&gt;Run new &apos;Order a taxi&apos; process&lt;/h2&gt; quot;"/>
+<property name="fieldClass" value="HTMLlabel"/>
+</field>
+<field position="1" name="restUrl" type="InputText" id="643574954">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;SSClassquot;,quot;quot;quot;SSStylequot;,quot;quot;quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;REST URLquot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="errorMessage" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="title" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="readonly" value="false"/>
+<property name="isHTML" value="false"/>
+<property name="hideContent" value="false"/>
+<property name="defaultValueFormula" value="=&quot;http://www.mocky.io/v2/5803c0e02400005a12135c2f&quot;"/>
+<property name="inputBinding" value="restUrl"/>
+<property name="outputBinding" value="restUrl"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<dataHolder inputId="restUrl" name="#E9E371" type="basicType" outId="restUrl" value="java.lang.String" id="restUrl"/>
+</form>

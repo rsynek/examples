@@ -2,13 +2,27 @@ package org.jboss.qa.examples.bpm_taxi;
 
 import org.jboss.qa.examples.bpm_taxi.Address
 import org.jboss.qa.examples.bpm_taxi.Taxi
+import org.kie.api.runtime.process.WorkflowProcessInstance
 
+/*
+  TODO: chooses any available taxi at the moment, must choose the nearest available.
+*/
 rule 'findNearestTaxi'
 ruleflow-group 'nearestTaxi'
+no-loop
 when
-  taxi : Taxi() 
+  taxi : Taxi(inUse == false)
+  drive : Drive()
+  process : WorkflowProcessInstance()
 then
-  
+  System.out.println("********** rule task 'findNearestTaxi' **********");
+  //modify(drive) {
+//    setTaxi(taxi);
+ // }
+  drive.setTaxi(taxi);
+  WorkflowProcessInstance $p = (WorkflowProcessInstance)kcontext.getKieRuntime().getProcessInstance(process.getId());
+  $p.setVariable( "drive", drive);
+  retract(process);
+
+  System.out.println("Drive: " + drive);
 end
-
-

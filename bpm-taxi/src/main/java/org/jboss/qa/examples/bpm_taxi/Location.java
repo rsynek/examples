@@ -1,7 +1,9 @@
 package org.jboss.qa.examples.bpm_taxi;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlAccessorType;
 
+@XmlAccessorType(javax.xml.bind.annotation.XmlAccessType.FIELD)
 public class Location implements java.io.Serializable {
 
     private static final double EARTH_RADIUS_METERS = 6371000;
@@ -13,7 +15,7 @@ public class Location implements java.io.Serializable {
     private double longitude;
 
     //JAXB only
-    private Location() {}
+    public Location() {}
 
     public Location(final double lattitude, final double longitude) {
         this.lattitude = lattitude;
@@ -26,6 +28,14 @@ public class Location implements java.io.Serializable {
 
     public double getLongitude() {
         return longitude;
+    }
+    
+    public void setLattitude(double latt) {
+        this.lattitude = latt;
+    }
+
+    public void setLongitude(double longit) {
+        this.longitude = longit;
     }
 
     public double computeDistance(final Location secondLocation) {
