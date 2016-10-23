@@ -11,38 +11,27 @@ public class Address extends Entity implements java.io.Serializable {
 
     static final long serialVersionUID = 1L;
 
-    private java.lang.String city;
-    private java.lang.String street;
+    private String line;
     private Location location;
 
     public Address() {
     }
 
-    public Address(final String city, final String street) {
-        this.city = city;
-        this.street = street;
+    public Address(final String line) {
+        this.line = line;
     }
 
-    public Address(java.lang.String city, java.lang.String street, Location location) {
-        this.city = city;
-        this.street = street;
+    public Address(java.lang.String line, Location location) {
+        this.line = line;
         this.location = location;
     }
 
-    public java.lang.String getCity() {
-        return this.city;
+    public java.lang.String getLine() {
+        return this.line;
     }
 
-    public void setCity(java.lang.String city) {
-        this.city = city;
-    }
-
-    public java.lang.String getStreet() {
-        return this.street;
-    }
-
-    public void setStreet(java.lang.String street) {
-        this.street = street;
+    public void setLine(java.lang.String line) {
+        this.line = line;
     }
 
     public Location getLocation() {
@@ -60,15 +49,12 @@ public class Address extends Entity implements java.io.Serializable {
 
         Address address = (Address) o;
 
-        if (city != null ? !city.equals(address.city) : address.city != null) return false;
-        return !(street != null ? !street.equals(address.street) : address.street != null);
+        return !(line != null ? !line.equals(address.line) : address.line != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = city != null ? city.hashCode() : 0;
-        result = 31 * result + (street != null ? street.hashCode() : 0);
-        return result;
+        return line != null ? line.hashCode() : 0;
     }
 }

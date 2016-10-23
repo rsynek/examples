@@ -17,7 +17,7 @@
 <property name="readonly" value="false"/>
 <property name="isHTML" value="false"/>
 <property name="hideContent" value="false"/>
-<property name="defaultValueFormula" value="=&quot;http://www.mocky.io/v2/5803c0e02400005a12135c2f&quot;"/>
+<property name="defaultValueFormula" value="=&quot;http://www.mocky.io/v2/580ce406100000861154048f&quot;"/>
 <property name="inputBinding" value="restUrl"/>
 <property name="outputBinding" value="restUrl"/>
 <property name="fieldClass" value="java.lang.String"/>
