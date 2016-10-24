@@ -11,14 +11,9 @@ ruleflow-group 'calculatePrice'
 no-loop
 when
   drive : Drive()
-  process : WorkflowProcessInstance()
 then
   System.out.println("********** rule task 'calculatePrice' **********");
   drive.setPrice(500.0);
-  
-  WorkflowProcessInstance $p = (WorkflowProcessInstance)kcontext.getKieRuntime().getProcessInstance(process.getId());
-  $p.setVariable( "drive", drive);
-  retract(process);
-
+  update(drive);
   System.out.println("Drive: " + drive);
 end

@@ -13,16 +13,9 @@ no-loop
 when
   taxi : Taxi(inUse == false)
   drive : Drive()
-  process : WorkflowProcessInstance()
 then
   System.out.println("********** rule task 'findNearestTaxi' **********");
-  //modify(drive) {
-//    setTaxi(taxi);
- // }
   drive.setTaxi(taxi);
-  WorkflowProcessInstance $p = (WorkflowProcessInstance)kcontext.getKieRuntime().getProcessInstance(process.getId());
-  $p.setVariable( "drive", drive);
-  retract(process);
-
+  update(drive);
   System.out.println("Drive: " + drive);
 end
