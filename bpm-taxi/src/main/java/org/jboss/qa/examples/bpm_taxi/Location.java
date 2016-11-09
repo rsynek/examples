@@ -68,6 +68,10 @@ public class Location implements java.io.Serializable {
 
     }
 
+    public String toString() {
+        return "latt: " + lattitude + ", long: " + longitude;
+    }
+
     @Override
     public int hashCode() {
         int result;

@@ -1,19 +1,88 @@
 package org.jboss.qa.examples.bpm_taxi;
 
-import org.jboss.qa.examples.bpm_taxi.Customer
-import org.jboss.qa.examples.bpm_taxi.Drive
+import org.jboss.qa.examples.bpm_taxi.*;
+import java.util.Date;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 
-/*
-  TODO: sets constant price, must compute it based on distance and customer's history
-*/
-rule 'calculatePrice'
+declare Price
+    base: double
+    discount: double
+end
+
+declare DistanceInKm
+    value: double
+end
+
+rule 'Calculate Distance'
 ruleflow-group 'calculatePrice'
 no-loop
 when
-  drive : Drive()
+  drive: Drive()
+  not DistanceInKm()
 then
-  System.out.println("********** rule task 'calculatePrice' **********");
-  drive.setPrice(500.0);
+  // get distance
+  final Location from = drive.getFrom().getLocation();
+  final Location to = drive.getTo().getLocation();
+  double distance = from.computeDistance(to) / 1000.0;
+  // get distance
+  DistanceInKm d = new DistanceInKm(distance);
+  insert(d);
+end
+
+rule 'Calculate Base Price'
+ruleflow-group 'calculatePrice'
+no-loop
+when
+  drive: Drive()
+  distance: DistanceInKm()
+  not Price()
+then
+  // get prices
+  double pricePerKilometer = 40.0;
+  Price p = new Price(pricePerKilometer * distance.getValue(), 0.0);
+  // update knowledge
+  insert(p);
+  System.out.println("Base price: " + p.getBase());
+end
+
+rule 'Discount for a returning customer'
+ruleflow-group 'calculatePrice'
+no-loop
+when
+  c: Customer($h: history)
+  p: Price()
+then
+  modify (p) {
+    setDiscount($h.size() * 10.0);   
+  }
+end
+
+rule 'Store price'
+ruleflow-group 'calculatePrice'
+no-loop
+when
+  drive: Drive()
+  p: Price()
+then
+  drive.setPrice(p.getBase() - p.getDiscount());
   update(drive);
-  System.out.println("Drive: " + drive);
+  System.out.println("Store price: " + drive.getPrice());
+end
+
+rule 'Calculate arrival time'
+ruleflow-group 'calculatePrice'
+no-loop
+when
+  distance: DistanceInKm()
+  drive: Drive()
+then
+  int minutesPerKm = 1;
+  int travelTime = (int)(minutesPerKm * distance.getValue());
+
+  Instant travel = Instant.now().plus(travelTime, ChronoUnit.MINUTES);
+  System.out.println("Travel time: " + travel);
+  drive.setArrivalTime(Date.from(travel));
+  
+  update(drive);
 end

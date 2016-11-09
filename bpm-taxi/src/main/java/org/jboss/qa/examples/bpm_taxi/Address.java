@@ -52,6 +52,10 @@ public class Address extends Entity implements java.io.Serializable {
         return !(line != null ? !line.equals(address.line) : address.line != null);
 
     }
+    
+     public String toString() {
+        return line + " :: " + (location == null? "null" : location );
+    }
 
     @Override
     public int hashCode() {

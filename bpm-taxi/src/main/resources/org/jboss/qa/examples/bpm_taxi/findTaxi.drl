@@ -4,18 +4,37 @@ import org.jboss.qa.examples.bpm_taxi.Address
 import org.jboss.qa.examples.bpm_taxi.Taxi
 import org.kie.api.runtime.process.WorkflowProcessInstance
 
-/*
-  TODO: chooses any available taxi at the moment, must choose the nearest available.
-*/
-rule 'findNearestTaxi'
+declare DistanceToCustomer
+    car: Taxi
+    distanceInKm: double
+end
+
+rule 'Calculate distance from customer for an available taxi'
 ruleflow-group 'nearestTaxi'
 no-loop
 when
   taxi : Taxi(inUse == false)
-  drive : Drive()
+  drive : Drive(taxi == null, $drfrom: this.getFrom())
 then
-  System.out.println("********** rule task 'findNearestTaxi' **********");
-  drive.setTaxi(taxi);
+  // find distance
+  Location taxiLocation = taxi.getCurrentLocation().getLocation();
+  Location customerLocation = $drfrom.getLocation();
+  System.out.println("driveFromLocation:" + customerLocation);
+  double distance = taxiLocation.computeDistance(customerLocation);
+  // infer additional knowledge
+  DistanceToCustomer d = new DistanceToCustomer(taxi, distance / 1000.0);
+  insert(d);
+end
+
+rule 'Find the taxi closest to the customer'
+ruleflow-group 'nearestTaxi'
+no-loop
+when
+  fact: DistanceToCustomer($car: this.car)
+  not DistanceToCustomer(this != fact, this.distanceInKm < fact.distanceInKm)
+  drive: Drive()
+then
+  System.out.println("car:" + $car.getCurrentLocation());
+  drive.setTaxi($car);
   update(drive);
-  System.out.println("Drive: " + drive);
 end
