@@ -14,27 +14,24 @@ declare DistanceInKm
     value: double
 end
 
-rule 'Calculate Distance'
+rule 'Calculate distance between two addresses'
 ruleflow-group 'calculatePrice'
-no-loop
 when
-  drive: Drive()
+  Drive($start: from, $end: to)
   not DistanceInKm()
 then
   // get distance
-  final Location from = drive.getFrom().getLocation();
-  final Location to = drive.getTo().getLocation();
+  final Location from = $start.getLocation();
+  final Location to = $end.getLocation();
   double distance = from.computeDistance(to) / 1000.0;
-  // get distance
+  // insert fact
   DistanceInKm d = new DistanceInKm(distance);
   insert(d);
 end
 
-rule 'Calculate Base Price'
+rule 'Calculate base price based on the distance'
 ruleflow-group 'calculatePrice'
-no-loop
 when
-  drive: Drive()
   distance: DistanceInKm()
   not Price()
 then
@@ -46,7 +43,7 @@ then
   System.out.println("Base price: " + p.getBase());
 end
 
-rule 'Discount for a returning customer'
+rule 'Add discount for a returning customer'
 ruleflow-group 'calculatePrice'
 no-loop
 when
@@ -56,33 +53,17 @@ then
   modify (p) {
     setDiscount($h.size() * 10.0);   
   }
+  System.out.println("Discount: " + p.getDiscount());
 end
 
-rule 'Store price'
+rule 'Set final price'
 ruleflow-group 'calculatePrice'
-no-loop
 when
-  drive: Drive()
+  drive: Drive(price == null || price == 0.0)
   p: Price()
 then
-  drive.setPrice(p.getBase() - p.getDiscount());
-  update(drive);
-  System.out.println("Store price: " + drive.getPrice());
-end
-
-rule 'Calculate arrival time'
-ruleflow-group 'calculatePrice'
-no-loop
-when
-  distance: DistanceInKm()
-  drive: Drive()
-then
-  int minutesPerKm = 1;
-  int travelTime = (int)(minutesPerKm * distance.getValue());
-
-  Instant travel = Instant.now().plus(travelTime, ChronoUnit.MINUTES);
-  System.out.println("Travel time: " + travel);
-  drive.setArrivalTime(Date.from(travel));
-  
-  update(drive);
+  modify (drive) {
+    setPrice(p.getBase() - p.getDiscount());
+  }
+  System.out.println("Final price: " + drive.getPrice());
 end

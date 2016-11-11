@@ -28,13 +28,28 @@ end
 
 rule 'Find the taxi closest to the customer'
 ruleflow-group 'nearestTaxi'
-no-loop
 when
   fact: DistanceToCustomer($car: this.car)
   not DistanceToCustomer(this != fact, this.distanceInKm < fact.distanceInKm)
-  drive: Drive()
+  drive: Drive(taxi == null)
 then
   System.out.println("car:" + $car.getCurrentLocation());
-  drive.setTaxi($car);
-  update(drive);
+  modify (drive) {
+    setTaxi($car);
+  }
+end
+
+rule 'Calculate taxi arrival time'
+ruleflow-group 'calculatePrice'
+when
+  drive: Drive($car: taxi, arrivalTime == null)
+  distance: DistanceToCustomer(car == $car)
+then
+  int minutesPerKm = 1;
+  int travelTime = (int)(minutesPerKm * distance.getDistanceInKm());
+  Instant travel = Instant.now().plus(travelTime, ChronoUnit.MINUTES);
+  modify (drive) {
+    setArrivalTime(Date.from(travel));
+  }
+  System.out.println("Travel time: " + travel);
 end
