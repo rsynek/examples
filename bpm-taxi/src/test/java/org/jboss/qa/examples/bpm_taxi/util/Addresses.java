@@ -8,7 +8,7 @@ import org.jboss.qa.examples.bpm_taxi.Location;
 
 enum Addresses {
 
-    PEKARSKA (new Address("Brno, Pekarska 26", new Location(49.192396, 16.601537))),
+    PEKARSKA (new Address("Brno, Pekarska 38", new Location(49.192396, 16.601537))),
     CERNOPOLNI (new Address("Brno, Cernopolni 45", new Location(49.207388, 16.616178))),
     NOVOLISENSKA (new Address("Brno, Novolisenska 2702", new Location(49.213878, 16.683052))),
     KURIM (new Address("Kurim, Jungmannova 906", new Location(49.307069, 16.528455))),

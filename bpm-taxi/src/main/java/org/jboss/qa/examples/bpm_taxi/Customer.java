@@ -1,5 +1,6 @@
 package org.jboss.qa.examples.bpm_taxi;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -21,11 +22,11 @@ public class Customer extends Entity implements java.io.Serializable {
 
     static final long serialVersionUID = 1L;
 
-    private java.lang.String name;
-    private java.lang.String surname;
+    private String name;
+    private String surname;
 
     @XmlElementWrapper
-    private java.util.List<org.jboss.qa.examples.bpm_taxi.Drive> history;
+    private List<Drive> history = new ArrayList();
 
     public Customer() {
     }
@@ -41,28 +42,28 @@ public class Customer extends Entity implements java.io.Serializable {
         this.history = history;
     }
 
-    public java.lang.String getName() {
+    public String getName() {
         return this.name;
     }
 
-    public void setName(java.lang.String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public java.lang.String getSurname() {
+    public String getSurname() {
         return this.surname;
     }
 
-    public void setSurname(java.lang.String surname) {
+    public void setSurname(String surname) {
         this.surname = surname;
     }
 
-    public java.util.List<org.jboss.qa.examples.bpm_taxi.Drive> getHistory() {
+    public List<Drive> getHistory() {
         return this.history;
     }
 
     public void setHistory(
-            java.util.List<org.jboss.qa.examples.bpm_taxi.Drive> history) {
+            List<Drive> history) {
         this.history = history;
     }
 
