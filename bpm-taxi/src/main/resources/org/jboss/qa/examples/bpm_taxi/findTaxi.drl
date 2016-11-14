@@ -45,7 +45,7 @@ when
   drive: Drive($car: taxi, arrivalTime == null)
   distance: DistanceToCustomer(car == $car)
 then
-  int minutesPerKm = 1;
+  int minutesPerKm = 4;
   int travelTime = (int)(minutesPerKm * distance.getDistanceInKm());
   Instant travel = Instant.now().plus(travelTime, ChronoUnit.MINUTES);
   modify (drive) {
