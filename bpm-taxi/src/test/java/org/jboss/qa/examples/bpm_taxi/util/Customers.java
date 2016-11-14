@@ -35,7 +35,7 @@ enum Customers {
         lukiPetrovicky.setSurname("Petrovicky");
 
         final Drive firstDrive = new Drive();
-        firstDrive.setFrom(Addresses.PEKARSKA.getAddress());
+        firstDrive.setFrom(Addresses.GORKEHO.getAddress());
         firstDrive.setTo(Addresses.PURKYNOVA.getAddress());
         firstDrive.setTaxi(Taxis.TAXI_C.getTaxi());
         firstDrive.setPrice(320.0);
